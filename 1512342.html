@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./img/shortcut-icon.png" />
+    <title>Portal - ĐĂNG KÝ MÔN HỌC</title>
+
+    <!-- Cài đặt style.css, fonts, logos -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700"
+      rel="stylesheet"
+    />
+
+    <!-- BootStrap 4.3.1 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" id="nav-here" href="1512342.html">
+        <img
+          src="./img/logo.png"
+          class="d-inline-block align-top img-logo"
+          id="img-logo"
+          alt="Portal - Đăng ký môn học"
+        />
+        ĐĂNG KÝ MÔN HỌC
+      </a>
+    </nav>
+    <form class="form-here" name="formMain">
+      <div class="form-group row">
+        <label class="col-md-2" for="code"> Mã số </label>
+        <input
+          class="col-md-10"
+          type="text"
+          class="form-control"
+          id="code"
+          name="code"
+          placeholder="Nhập mã số của bạn..."
+        />
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2" for="name"> Họ tên </label>
+        <input
+          class="col-md-10"
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Nhập họ tên của bạn..."
+        />
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2"> Giới tính </label>
+        <div class="form-check form-check-inline form-margin">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="gender"
+            id="gender1"
+            value="Nam"
+          />
+          <label class="form-check-label value-gender" for="gender1">
+            Nam
+          </label>
+        </div>
+        <div class="form-check form-check-inline form-margin">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="gender"
+            id="gender2"
+            value="Nữ"
+          />
+          <label class="form-check-label value-gender" for="gender2">
+            Nữ
+          </label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2"> Ngày sinh </label>
+        <div class="form-group col-md-2" style="padding-left: 0;">
+          <select class="form-control" name="day" id="day"> </select>
+        </div>
+        <div class="form-group col-md-2">
+          <select class="form-control" name="month" id="month"> </select>
+        </div>
+        <div class="form-group col-md-6" style="padding-right: 0;">
+          <select class="form-control" name="year" id="year"> </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="form-group col-md-5">
+          <label> Các môn học </label>
+          <select
+            class="form-control subject"
+            name="subjectlist"
+            id="subjectlist"
+            multiple
+            size="8"
+          >
+            <option value="1"> Chuyên đề Java </option>
+            <option value="2"> CSDL Web </option>
+            <option value="3"> Trí tuệ nhân tạo </option>
+            <option value="4"> Công nghệ phần mềm </option>
+            <option value="5"> Lập trình Windows </option>
+            <option value="6"> Cấu trúc dữ liệu </option>
+            <option value="7"> Lập trình hướng đối tượng </option>
+          </select>
+        </div>
+        <div class="form-group col-md-2 subjectbutton">
+          <button type="button" class="btn btn-light btn-here" onclick="next()">
+            &gt;
+          </button>
+          <button
+            type="button"
+            class="btn btn-light btn-here"
+            onclick="forward()"
+          >
+            &gt;&gt;
+          </button>
+          <button type="button" class="btn btn-light btn-here" onclick="back()">
+            &lt;
+          </button>
+          <button
+            type="button"
+            class="btn btn-light btn-here"
+            onclick="backward()"
+          >
+            &lt;&lt;
+          </button>
+        </div>
+        <div class="form-group col-md-5" style="padding-right: 0;">
+          <label> Đã chọn </label>
+          <select
+            class="form-control subject"
+            name="subjectchooose"
+            id="subjectchooose"
+            multiple
+            size="8"
+          >
+          </select>
+        </div>
+      </div>
+      <div class="form-group row" style="margin: 0px 50px;">
+        <div class="form-group col-md-4" style="text-align: right;">
+          <button
+            type="button"
+            class="btn btn-outline-success"
+            onclick="return register()"
+          >
+            Đăng ký
+          </button>
+        </div>
+        <div class="form-group col-md-4" style="text-align: center;">
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            onclick="return listview()"
+          >
+            Xem danh sách
+          </button>
+        </div>
+        <div class="form-group col-md-4" style="text-align: left;">
+          <button
+            type="button"
+            class="btn btn-outline-warning"
+            onclick="return submit()"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- <div class="form-group row">
+        <div class="col-md-3"> Mã số </div>
+        <div class="col-md-5"> Họ tên </div>
+        <div class="col-md-2"> Giới tính </div>
+        <div class="col-md-2"> Ngày sinh </div>
+    </div>
+    <a href="#" onclick="someFunction(); return false;">
+        <div class="form-group row" id="table-body">
+
+        </div>
+    </a> -->
+
+    <!-- <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th> Mã số </th>
+                <th> Họ tên </th>
+                <th> Giới tính </th>
+                <th> Ngày sinh </th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+    </table> -->
+
+    <div class="table" id="table-body">
+      <div class="table-row">
+        <div class="table-cell table-title">Mã số</div>
+        <div class="table-cell table-title">Họ tên</div>
+        <div class="table-cell table-title">Giới tính</div>
+        <div class="table-cell table-title">Ngày sinh</div>
+      </div>
+    </div>
+
+    <div id="popup-bg">
+      <div id="popup-text">
+        <h3>THÔNG TIN CHI TIẾT</h3>
+        <hr />
+        <div id="detail-here-partner">
+          <p>Mã số: <span id="popup-code"> </span></p>
+          <p>Họ tên: <span id="popup-name"> </span></p>
+          <p>Giới tính: <span id="popup-gender"> </span></p>
+          <p>Ngày sinh: <span id="popup-dob"> </span></p>
+          <p>Môn học đăng ký: <span id="popup-subject"> </span></p>
+        </div>
+        <hr />
+        <div class="form-group col-md-12" style="text-align: center;">
+          <button
+            type="button"
+            class="btn btn-outline-dark btn-close"
+            onclick="closenow()"
+          >
+            Đóng
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BootStrap 4.3.1 -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Javascript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
